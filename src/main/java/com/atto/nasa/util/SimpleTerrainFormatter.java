@@ -9,6 +9,6 @@ import com.atto.nasa.domain.Terrain;
 public class SimpleTerrainFormatter implements TerrainFormatter {
 
 	public String format(Terrain t, RobotOrientation i) {
-		return String.format("(%d,%d,%s)", t.getPosX(), t.getPosY(),i);
+		return String.format("(%d, %d, %s)", t.getPosX(), t.getPosY(),i);
 	}
 }

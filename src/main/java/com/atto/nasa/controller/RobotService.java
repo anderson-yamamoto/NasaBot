@@ -12,6 +12,11 @@ import com.atto.nasa.domain.exception.InvalidPositionException;
 import com.atto.nasa.domain.exception.RobotInstructionParseException;
 import com.atto.nasa.util.TerrainFormatter;
 
+/**
+ * 
+ * @author Atto
+ *
+ */
 @Service
 public class RobotService {
 	
@@ -22,6 +27,7 @@ public class RobotService {
 		List<RobotInstruction> list = RobotInstruction.parse(movement);
 		Terrain terrain = new Terrain(5,5,0,0);
 		RobotOrientation currentOrientation = RobotOrientation.N; 
+		
 		for (RobotInstruction instr : list){
 			if (RobotInstruction.M.equals(instr))
 				terrain.move(currentOrientation);
