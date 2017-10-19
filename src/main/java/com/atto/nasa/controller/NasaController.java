@@ -15,13 +15,13 @@ public class NasaController {
 	@Autowired
 	private RobotService robotService;
 	
-	@RequestMapping(value = "/mars/{path}", method = RequestMethod.POST, produces = "application/json")
+	@RequestMapping(value = "/mars/{path}", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<String> navigateRobot(@PathVariable("path") String path) {
 		try{
 			return new ResponseEntity<String>(robotService.moveRobot(path), HttpStatus.OK);
 		}catch(Exception e){
 			//No logging as no logger libs allowed on Maven
-			return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<String>("400 Bad Request", HttpStatus.BAD_REQUEST);
 		}
 	}
 }
