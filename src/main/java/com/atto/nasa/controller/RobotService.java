@@ -15,13 +15,13 @@ public class RobotService {
 	public String moveRobot(String movement) throws RobotInstructionParseException, InvalidPositionException{
 		List<RobotInstruction> list = RobotInstruction.parse(movement);
 		Terrain terrain = new Terrain(5,5,0,0);
-		RobotOrientation currentOrientation = RobotOrientation.NORTH; 
+		RobotOrientation currentOrientation = RobotOrientation.N; 
 		for (RobotInstruction instr : list){
 			if (RobotInstruction.M.equals(instr))
 				terrain.move(currentOrientation);
 			else
 				currentOrientation = currentOrientation.turn(instr);
 		}
-		return currentOrientation + " " + terrain.getPosX() + "," + terrain.getPosY() ;
+		return "(" + terrain.getPosX() + "," + terrain.getPosY()  + "," + currentOrientation +")";
 	}
 }

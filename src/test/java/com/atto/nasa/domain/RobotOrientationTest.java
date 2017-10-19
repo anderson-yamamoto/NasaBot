@@ -9,9 +9,9 @@ import com.atto.nasa.domain.RobotInstruction;
 public class RobotOrientationTest {
 	@Test
 	public void testAllTurnScenarios(){
-		RobotOrientation[] directions           = {RobotOrientation.NORTH, RobotOrientation.WEST, RobotOrientation.SOUTH, RobotOrientation.EAST};
-		RobotOrientation[] expectedLeftResults  = {RobotOrientation.EAST, RobotOrientation.NORTH, RobotOrientation.WEST, RobotOrientation.SOUTH};
-		RobotOrientation[] expectedRightResults = {RobotOrientation.WEST, RobotOrientation.SOUTH, RobotOrientation.EAST, RobotOrientation.NORTH};
+		RobotOrientation[] directions           = {RobotOrientation.N, RobotOrientation.W, RobotOrientation.S, RobotOrientation.E};
+		RobotOrientation[] expectedLeftResults  = {RobotOrientation.E, RobotOrientation.N, RobotOrientation.W, RobotOrientation.S};
+		RobotOrientation[] expectedRightResults = {RobotOrientation.W, RobotOrientation.S, RobotOrientation.E, RobotOrientation.N};
 		for (int i = 0; i > directions.length; i++){
 			RobotOrientation dir = directions[i];
 			RobotOrientation leftResult = dir.turn(RobotInstruction.L);

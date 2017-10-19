@@ -63,7 +63,7 @@ public class TerrainTest {
 	@Test
 	public void moveValidPositionNorth() throws InvalidPositionException{
 		Terrain t  = new Terrain(SIZEX, SIZEY, 1, 1);
-		t.move(RobotOrientation.NORTH);
+		t.move(RobotOrientation.N);
 		assertEquals(1, t.getPosX());
 		assertEquals(2, t.getPosY());
 	}
@@ -71,7 +71,7 @@ public class TerrainTest {
 	@Test
 	public void moveValidPositionWest() throws InvalidPositionException{
 		Terrain t  = new Terrain(SIZEX, SIZEY, 1, 1);
-		t.move(RobotOrientation.WEST);
+		t.move(RobotOrientation.W);
 		assertEquals(0, t.getPosX());
 		assertEquals(1, t.getPosY());
 	}
@@ -79,7 +79,7 @@ public class TerrainTest {
 	@Test
 	public void moveValidPositionEast() throws InvalidPositionException{
 		Terrain t  = new Terrain(SIZEX, SIZEY, 1, 1);
-		t.move(RobotOrientation.EAST);
+		t.move(RobotOrientation.E);
 		assertEquals(2, t.getPosX());
 		assertEquals(1, t.getPosY());
 	}
@@ -87,7 +87,7 @@ public class TerrainTest {
 	@Test
 	public void moveValidPositionSouth() throws InvalidPositionException{
 		Terrain t  = new Terrain(SIZEX, SIZEY, 1, 1);
-		t.move(RobotOrientation.SOUTH);
+		t.move(RobotOrientation.S);
 		assertEquals(1, t.getPosX());
 		assertEquals(0, t.getPosY());
 	}
@@ -95,24 +95,24 @@ public class TerrainTest {
 	@Test(expected=InvalidPositionException.class)
 	public void moveInvalidPositionNorth() throws InvalidPositionException{
 		Terrain t  = new Terrain(SIZEX, SIZEY, 1, SIZEY - 1);
-		t.move(RobotOrientation.NORTH);
+		t.move(RobotOrientation.N);
 	}
 	
 	@Test(expected=InvalidPositionException.class)
 	public void moveInvalidPositionWest() throws InvalidPositionException{
 		Terrain t  = new Terrain(SIZEX, SIZEY, 0, 1);
-		t.move(RobotOrientation.WEST);
+		t.move(RobotOrientation.W);
 	}
 	
 	@Test(expected=InvalidPositionException.class)
 	public void moveInvalidPositionEast() throws InvalidPositionException{
 		Terrain t  = new Terrain(SIZEX, SIZEY, SIZEX - 1, 1);
-		t.move(RobotOrientation.EAST);
+		t.move(RobotOrientation.E);
 	}
 	
 	@Test(expected=InvalidPositionException.class)
 	public void moveInvalidPositionSouth() throws InvalidPositionException{
 		Terrain t  = new Terrain(SIZEX, SIZEY, 1, 0);
-		t.move(RobotOrientation.SOUTH);
+		t.move(RobotOrientation.S);
 	}
 }

@@ -33,8 +33,8 @@ public class Terrain {
 	 * @throws InvalidPositionException if the edges are reached.
 	 */
 	public void move(RobotOrientation currentOrientation) throws InvalidPositionException{
-		this.posX += currentOrientation.getX();
-		this.posY += currentOrientation.getY();
+		this.posX += currentOrientation.getXMovement();
+		this.posY += currentOrientation.getYMovement();
 		if (this.posX >= sizeX || this.posX < 0 || this.posY >= sizeY || this.posY < 0)
 			throw new InvalidPositionException();
 	}

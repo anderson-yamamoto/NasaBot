@@ -5,9 +5,9 @@ package com.atto.nasa.domain;
  */
 public enum RobotOrientation {
 	
-	NORTH(0, 0, 1), EAST(1, 1, 0), SOUTH(2, 0, -1),  WEST(3, -1, 0);
+	N(0, 0, 1), E(1, 1, 0), S(2, 0, -1),  W(3, -1, 0);
 	
-	public static RobotOrientation[] directions = new RobotOrientation[]{NORTH,EAST,SOUTH,WEST};
+	public static RobotOrientation[] directions = new RobotOrientation[]{N,E,S,W};
 	
 	/*
 	 * Pointer to the array of codes 
@@ -31,19 +31,19 @@ public enum RobotOrientation {
 	}
 	
 	public RobotOrientation turn(RobotInstruction instruction){
-		if (NORTH.equals(this)  && RobotInstruction.L.equals(instruction))
-			return WEST;
-		else if (WEST.equals(this) && RobotInstruction.R.equals(instruction))
-			return NORTH;
+		if (N.equals(this)  && RobotInstruction.L.equals(instruction))
+			return W;
+		else if (W.equals(this) && RobotInstruction.R.equals(instruction))
+			return N;
 		else
 			return directions[code + instruction.getDirection()];
 	}
 	
-	public int getX(){
+	public int getXMovement(){
 		return x;
 	}
 	
-	public int getY(){
+	public int getYMovement(){
 		return y;
 	}
 }
