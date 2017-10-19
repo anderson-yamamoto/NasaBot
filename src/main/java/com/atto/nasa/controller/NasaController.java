@@ -15,7 +15,7 @@ public class NasaController {
 	@Autowired
 	private RobotService robotService;
 	
-	@RequestMapping(value = "/mars/{path}", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "/mars/{path}", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<String> navigateRobot(@PathVariable("path") String path) {
 		try{
 			return new ResponseEntity<String>(robotService.moveRobot(path), HttpStatus.OK);
