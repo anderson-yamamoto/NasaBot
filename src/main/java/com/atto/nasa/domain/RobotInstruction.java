@@ -7,12 +7,22 @@ import java.util.regex.Pattern;
 
 import com.atto.nasa.domain.exception.RobotInstructionParseException;
 
-/*
+/**
  * Enumeration for the Instructions a Nasa Robot can receive
  */
 public enum RobotInstruction {
-	
-	L(-1),R(1),M(0);
+	/**
+	 * Indicates the Robot should turn left, resulting on a counter clockwise spin.
+	 */
+	L(-1),
+	/**
+	 * Indicates the Robot should turn right, resulting on a clockwise spin.
+	 */
+	R(1),
+	/**
+	 * Indicates the robot should move forward one space, to whichever direction he's pointing to..
+	 */
+	M(0);
 	
 	private static Predicate<String> regex = Pattern.compile("^[lLrRmM]+$").asPredicate();
 	
@@ -46,6 +56,10 @@ public enum RobotInstruction {
 		return valueOf(c.toString());
 	}
 
+	/**
+	 * Defines whether this Instruction is clockwise (1) or counter clockwise (-1), or neither (0)
+	 * @return An integer, possible values: 0, 1, -1.
+	 */
 	public int getDirection() {
 		return direction;
 	}

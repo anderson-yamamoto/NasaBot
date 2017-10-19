@@ -2,18 +2,23 @@ package com.atto.nasa.domain;
 
 import com.atto.nasa.domain.exception.InvalidPositionException;
 
+/**
+ * Class for representing a rectangular terrain, with defined borders.
+ */
 public class Terrain {
+	
+	//TODO make this a terrain superclass and create a RectangularTerrain specialization if other terrain requirements are required.
 	protected int sizeX;
 	protected int sizeY;
 	protected int posX;
 	protected int posY;
 
 	/**
-	 * 
-	 * @param sizeX Horizontal size for this terrain 
-	 * @param sizeY
-	 * @param initialPosX Starting X position 
-	 * @param initialPosY Starting Y position
+	 * Creates a new terrain instance.
+	 * @param sizeX Horizontal size for this terrain. 
+	 * @param sizeY Vertical size for this terrain.
+	 * @param initialPosX Starting X position.
+	 * @param initialPosY Starting Y position.
 	 * @throws InvalidPositionException If the initial position is less than zero or more than or equal to the size specified  
 	 */
 	public Terrain(int sizeX, int sizeY, int initialPosX, int initialPosY) throws InvalidPositionException{
@@ -39,18 +44,35 @@ public class Terrain {
 			throw new InvalidPositionException();
 	}
 
+	/**
+	 * Returns the total size on the horizontal plane for this terrain.
+	 * @return An integer indicating the size
+	 */
 	public int getSizeX() {
 		return sizeX;
 	}
 
+	/**
+	 * Returns the total size on the vertical plane for this terrain.
+	 * @return An integer indicating the size
+	 */
 	public int getSizeY() {
 		return sizeY;
 	}
 
+
+	/**
+	 * Returns the current position on the horizontal plane for this terrain.
+	 * @return An integer indicating the position. Will be between 0 and SizeX - 1 inclusive.
+	 */
 	public int getPosX() {
 		return posX;
 	}
 
+	/**
+	 * Returns the current position on the vertical plane for this terrain.
+	 * @return An integer indicating the position. Will be between 0 and SizeY - 1 inclusive.
+	 */
 	public int getPosY() {
 		return posY;
 	}
